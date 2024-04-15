@@ -67,6 +67,7 @@ class TheLife():
             print('"speed" - change speed')
             print('"bg" - switch background')
             print('"allow_repeat" - allow/prohibit repeating frames')
+            print('"2d" - launch 2d if possible')
             print('\nSettings:')
             print(f' speed: {self.speed}x;\n cls: {self.cls};\n' +
                   f' allow_repeat: {self.allow_repeat};\n bg: "{self.bg}"')
@@ -120,6 +121,12 @@ class TheLife():
                 self.allow_repeat = False if self.allow_repeat else True
             elif x == 'bg':
                 self.bg = ' ' if self.bg != ' ' else '◦'
+            elif x == '2d':
+                if os.path.exists('launcher.py'):
+                    import launcher
+                    break
+                else:
+                    print('launcher is required')
             elif x == '':
                 break
             else:
